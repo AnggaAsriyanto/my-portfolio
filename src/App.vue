@@ -16,26 +16,32 @@ const toggleActive = (e) => {
 </script>
 
 <template>
-  <header class="flex w-screen justify-end items-center py-10 px-7">
+  <header class="fixed flex w-screen justify-end md:items-center py-6 px-7">
     <div class="flex-1">
-      <img src="./assets/logo.svg" alt="logo">
+      <img class="h-12 w-12 md:w-20 md:h-20" src="./assets/logo.svg" alt="logo">
     </div>
     <div class="flex-1">
-      <nav ref="navLink" class="flex justify-end">
-        <p @click="toggleActive($event)" id="work" class="link px-10 active cursor-pointer">
+      <nav ref="navLink" class="text-right md:flex md:text-left justify-end">
+        <p @click="toggleActive($event)" id="work" class="link py-2 md:px-10 active cursor-pointer">
           work
         </p>
-        <p @click="toggleActive($event)" id="about" class="link px-10 cursor-pointer">
+        <p @click="toggleActive($event)" id="about" class="link py-2 md:px-10 cursor-pointer">
           about
         </p>
-        <p @click="toggleActive($event)" id="contact" class="link px-10 cursor-pointer">
+        <p @click="toggleActive($event)" id="contact" class="link py-2 md:px-10 cursor-pointer">
           contact
         </p>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <main class="min-h-screen w-full">
+    <RouterView />
+  </main>
+
+  <footer class="w-full flex justify-center items-center pb-5">
+    <p class="text-xs">Copyright © 2024 Angga Asriyanto</p>
+  </footer>
 </template>
 
 <style scoped>
@@ -45,5 +51,11 @@ const toggleActive = (e) => {
 
 .active {
   @apply text-white
+}
+
+footer {
+  p {
+    color: #c4c4c4;
+  }
 }
 </style>
