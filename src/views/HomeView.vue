@@ -1,9 +1,13 @@
 <script setup>
+import { useToggleActiveLink } from '@/composables/toggleActiveLink';
+
+useToggleActiveLink()
 </script>
 
 <template>
+  <!--start section work -->
   <section class="work w-full">
-    <div class="header h-[80vh] md:h-[90vh] flex items-end md:items-end px-6 md:px-36">
+    <div class="header h-[80vh] md:h-[90vh] flex items-end md:items-end px-6 md:px-36" id="work">
       <h1 class="font-header text-7xl md:text-8xl">Freelance <br /> Front End Developer</h1>
     </div>
     <div class="lists w-full h-auto md:px-36">
@@ -18,7 +22,9 @@
       </div>
     </div>
   </section>
-  <section class="about w-full py-20 lg:py-0 lg:h-screen flex items-center lg:border-t-[1px] border-b-[1px]">
+  <!-- end section work -->
+  <!-- start section about -->
+  <section class="about w-full py-20 lg:py-0 lg:h-screen flex items-center lg:border-t-[1px] border-b-[1px]" id="about">
     <div class="me mt-10 px-6 md:px-36 flex items-start flex-col lg:flex-row">
       <div class="lg:flex-1">
         <h2 class="font-header text-6xl lg:text-8xl">
@@ -39,8 +45,10 @@
       </div>
     </div>
   </section>
-  <section class="contact w-full py-20 lg:py-0 flex flex-row items-center justify-center">
-    <div class="lg:h-screen flex justify-center items-center">
+  <!-- end section about -->
+  <!-- start section contact -->
+  <section class="contact w-full h-screen px-6 lg:px-0 flex flex-row items-center justify-center" id="contact">
+    <div class="flex justify-center items-center">
       <form action="" class="w-max flex flex-col justify-center items-center max-w-[400px]">
         <h2 class="font-header text-5xl tracking-wide pb-5">Want to discuss?</h2>
         <input class="w-full px-5 py-3 rounded-[10px] my-2" type="text" placeholder="Name">
@@ -52,6 +60,7 @@
       </form>
     </div>
   </section>
+  <!-- end section contact -->
 </template>
 
 <style scoped>
@@ -78,3 +87,4 @@ textarea {
   }
 }
 </style>
+@/composables/toggleActiveLink

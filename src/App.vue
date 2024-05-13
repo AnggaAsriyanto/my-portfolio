@@ -1,34 +1,28 @@
 <script setup>
-import { computed, ref } from 'vue';
 import { RouterView } from 'vue-router'
 
-const navLink = ref()
-
-const toggleActive = (e) => {
-  const childrens = computed(() => navLink.value.children)
-
-  for (let i = 0; i < childrens.value.length; i++) {
-    childrens.value[i].classList.remove('active')
-  }
-
-  e.target.classList.toggle('active')
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 </script>
 
 <template>
   <header class="fixed flex w-screen justify-end md:items-center py-6 px-7">
     <div class="flex-1">
-      <img class="h-12 w-12 md:w-20 md:h-20" src="./assets/logo.svg" alt="logo">
+      <router-link to="/" @click="scrollToTop">
+        <img class="h-12 w-12 md:w-20 md:h-20" src="./assets/logo.svg" alt="logo">
+        </ router-link>
+
     </div>
     <div class="flex-1">
       <nav ref="navLink" class="text-right md:flex md:text-left justify-end">
-        <p @click="toggleActive($event)" id="work" class="link py-2 md:px-10 active cursor-pointer">
+        <p id="work-link" class="link py-2 md:px-10 active cursor-pointer">
           work
         </p>
-        <p @click="toggleActive($event)" id="about" class="link py-2 md:px-10 cursor-pointer">
+        <p id="about-link" class="link py-2 md:px-10 cursor-pointer">
           about
         </p>
-        <p @click="toggleActive($event)" id="contact" class="link py-2 md:px-10 cursor-pointer">
+        <p id="contact-link" class="link py-2 md:px-10 cursor-pointer">
           contact
         </p>
       </nav>
@@ -59,3 +53,4 @@ footer {
   }
 }
 </style>
+@/composables/toggleActiveLink
