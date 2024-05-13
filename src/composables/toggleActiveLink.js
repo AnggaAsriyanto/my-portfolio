@@ -30,18 +30,17 @@ export const useToggleActiveLink = () => {
           contactSection?.scrollIntoView({ behavior: 'smooth' })
         }
 
-        // window.addEventListener('scrollend', () => {
-        //   linkClicked = false
-        // })
-
-        time = setTimeout(() => {
-          linkClicked = false
-        }, 1000)
+        window.addEventListener('scroll', () => {
+          clearTimeout(time)
+          time = setTimeout(() => {
+            linkClicked = false
+            console.log('scroll end')
+          }, 100)
+        })
       })
     })
 
     window.addEventListener('scroll', () => {
-      clearTimeout(time)
       if (!linkClicked) {
         if (useIsElementVisible(workSection)) {
           chooseActive(document.getElementById('work-link'))
