@@ -1,7 +1,23 @@
 <script setup>
 import { useToggleActiveLink } from '@/composables/toggleActiveLink';
+import { useFocus } from '@/stores/focus'
+import { onMounted } from 'vue';
+
+const store = useFocus()
 
 useToggleActiveLink()
+
+const focus = () => {
+  store.$patch({ focus: true })
+}
+
+const outFocus = () => {
+  store.$reset()
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', () => store.$reset())
+})
 </script>
 
 <template>
@@ -51,10 +67,12 @@ useToggleActiveLink()
     <div class="flex justify-center items-center">
       <form action="" class="w-full flex flex-col justify-center items-center">
         <h2 class="font-header text-5xl tracking-wide pb-5">Want to discuss?</h2>
-        <input class="w-full px-5 py-3 rounded-[10px] my-2" type="text" placeholder="Name">
-        <input class="w-full px-5 py-3 rounded-[10px] my-2" type="text" placeholder="Email">
-        <textarea class="w-full px-5 py-3 rounded-[10px] my-2" placeholder="Message" name="message" id="message"
-          cols="30" rows="5"></textarea>
+        <input @focus="focus" @blur="outFocus" class="w-full px-5 py-3 rounded-[10px] my-2" type="text"
+          placeholder="Name">
+        <input @focus="focus" @blur="outFocus" class="w-full px-5 py-3 rounded-[10px] my-2" type="text"
+          placeholder="Email">
+        <textarea @focus="focus" @blur="outFocus" class="w-full px-5 py-3 rounded-[10px] my-2" placeholder="Message"
+          name="message" id="message" cols="30" rows="5"></textarea>
         <button class="w-full px-5 py-3 rounded-[10px] my-2 bg-white text-black font-semibold"
           type="submit">Submit</button>
       </form>

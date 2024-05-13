@@ -61,6 +61,6 @@ export const useToggleActiveLink = () => {
     const links = document.querySelectorAll('.link')
 
     links.forEach((l) => l.classList.remove('active'))
-    target.classList.toggle('active')
+    target?.classList.toggle('active')
   }
 }

@@ -1,5 +1,8 @@
 <script setup>
 import { RouterView } from 'vue-router'
+import { useFocus } from '@/stores/focus'
+
+const store = useFocus()
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -7,7 +10,7 @@ const scrollToTop = () => {
 </script>
 
 <template>
-  <header class="fixed flex w-screen justify-end md:items-center py-6 px-7">
+  <header :class="[{ 'hidden md:flex': store.focus }, 'fixed flex w-screen justify-end md:items-center py-6 px-7']">
     <div class="flex-1">
       <router-link to="/" @click="scrollToTop">
         <img class="h-12 w-12 md:w-20 md:h-20" src="./assets/logo.svg" alt="logo">
@@ -53,4 +56,3 @@ footer {
   }
 }
 </style>
-@/composables/toggleActiveLink
