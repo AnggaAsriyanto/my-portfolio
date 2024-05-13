@@ -10,6 +10,7 @@ export const useToggleActiveLink = () => {
     const contactSection = document.getElementById('contact')
 
     let linkClicked = false
+    let time
 
     links.forEach((link) => {
       link.addEventListener('click', () => {
@@ -29,13 +30,18 @@ export const useToggleActiveLink = () => {
           contactSection?.scrollIntoView({ behavior: 'smooth' })
         }
 
-        window.addEventListener('scrollend', () => {
+        // window.addEventListener('scrollend', () => {
+        //   linkClicked = false
+        // })
+
+        time = setTimeout(() => {
           linkClicked = false
-        })
+        }, 1000)
       })
     })
 
     window.addEventListener('scroll', () => {
+      clearTimeout(time)
       if (!linkClicked) {
         if (useIsElementVisible(workSection)) {
           chooseActive(document.getElementById('work-link'))
