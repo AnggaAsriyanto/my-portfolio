@@ -49,7 +49,7 @@ useToggleActiveLink()
   <!-- start section contact -->
   <section class="contact w-full h-screen px-6 lg:px-0 flex flex-row items-center justify-center" id="contact">
     <div class="flex justify-center items-center">
-      <form action="" class="w-max flex flex-col justify-center items-center max-w-[400px]">
+      <form action="" class="w-full flex flex-col justify-center items-center">
         <h2 class="font-header text-5xl tracking-wide pb-5">Want to discuss?</h2>
         <input class="w-full px-5 py-3 rounded-[10px] my-2" type="text" placeholder="Name">
         <input class="w-full px-5 py-3 rounded-[10px] my-2" type="text" placeholder="Email">
@@ -87,4 +87,3 @@ textarea {
   }
 }
 </style>
-@/composables/toggleActiveLink
