@@ -14,10 +14,6 @@ const focus = () => {
 const outFocus = () => {
   store.$reset()
 }
-
-onMounted(() => {
-  window.addEventListener('scroll', () => store.$reset())
-})
 </script>
 
 <template>
