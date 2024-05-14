@@ -34,7 +34,6 @@ export const useToggleActiveLink = () => {
           clearTimeout(time)
           time = setTimeout(() => {
             linkClicked = false
-            console.log('scroll end')
           }, 100)
         })
       })

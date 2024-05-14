@@ -5,7 +5,7 @@ export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     colors: {
-      black: '#242424',
+      black: '#111111',
       white: '#ffffff'
     },
     fontFamily: {
